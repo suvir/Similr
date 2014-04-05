@@ -1,10 +1,10 @@
 {
   "AppName": {
-    "en": "Spotify Apps API Tutorial"
+    "en": "Similr"
   },
   "BundleIdentifier": "similr",
   "AppDescription": {
-    "en": "A tutorial app for Spotify Apps API"
+    "en": "Similr"
   },
   "AppIcon": {
     "18x18": "img/icons/icon-18x18.png",

@@ -6,54 +6,65 @@
         <link rel="stylesheet" href="$views/css/buttons.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/github.css">
-        <script src="/js/jquery.js"></script>
-        <script src="/js/test_echonest.js"></script>
+        <script src="/js/jquery.js"></script>    
+        <script src="/js/handlebars-v1.3.0.js"></script>
+        <script src="/js/array_match.js"></script>            
         <script src="/js/main.js"></script>
-         
+         <script type="text/javascript">
+            var items = [
+                {name : "Pramod Biligiri", "followers" : 17, "following" : 20, 
+                "genres" : ["jazz", "pop", "rock"]
+                },
+                {name : "Asad", "followers" : 17, "following" : 21,
+                "genres" :["pop", "rock"]
+                }
+            ];
+        </script>
     </head>
     <body>
-        
+                <script id="entry-template" type="text/x-handlebars-template">
+            {{#each items}}
+                <div style="width: 80%; margin-left: auto; margin-right: auto; margin-bottom: 1.5em">
+                    <div>   
+                        <img style="float:left;" height=100 width=100 src="{{image}}"></img>
 
-        <div id="wrapper">
-            <div id="index" class="section">
-                <h1>Spotify Apps API Tutorials</h1>
-                <h2>Getting started</h2>
-                <ul>
-                    <li><a href="spotify:app:api-tutorial:getting-started:manifest">Creating your manifest file</a></li>
-                    <li><a href="spotify:app:api-tutorial:getting-started:arguments">Handling arguments, creating pages and navigational tabs</a></li>
-                    <li><a href="spotify:app:api-tutorial:getting-started:drag-drop">Dragging and dropping content into an app</a></li>
-                </ul>
+                        <div style="float:left; margin-left: 1em; width:80%">
+                            <div style="float: left; width: 65%;">
+                                <div><span style="font-weight:bold; font-size: 1.6em">{{name}}</span></div>
+                                <div style="margin-left: 20%; margin-top: 1.2em;">
+                                <div class="userGenre">
+                                    <span style="font-size: 1.1em"> You both like {{genres}}</span>
+                                </div>
+                                </div>
+                            </div>
+                            
+                    </div>                                          
+                    </div>
+                    <div style="clear:both;"></div>
+                    
+                </div>
+            {{/each}}
+        </script>
 
-                <h2>Playing music</h2>
-                <ul>
-                    <li><a href="spotify:app:api-tutorial:playing:play-track">Play a single track</a></li>
-                    <li><a href="spotify:app:api-tutorial:playing:play-list-tracks">Play a list of tracks</a></li>
-                    <li><a href="spotify:app:api-tutorial:playing:current-track">Get the currently playing track</a></li>
-                    <li><a href="spotify:app:api-tutorial:playing:click-to-play">Create a play/pause button with an HTML element</a></li>
-                    <li><a href="spotify:app:api-tutorial:playing:skip-track">Skip to the next or previous track</a></li>
-                </ul>
+        <center><h1>Similr</h1></center>
+        <center><h2>The music connect</h2></center>
+        <div id="list">
 
-                <h2>Searching</h2>
-                <ul>
-                    <li><a href="spotify:app:api-tutorial:search:metadata">Get metadata from an artist, album, track, or playlist</a></li>
-                    <li><a href="spotify:app:api-tutorial:search:search">Return metadata with a given search query</a></li>
-                </ul>
-
-                <h2>Interacting with user data</h2>
-                <ul>
-                    <li><a href="spotify:app:api-tutorial:user:data">Get information about the current user</a>
-                    <li><a href="spotify:app:api-tutorial:user:toplist">Get a user's top tracks, artists, tracks and playlists</a></li>
-                    <li><a href="spotify:app:api-tutorial:user:star-track">Star and unstar a track</a></li>
-                </ul>
-
-                <h2>Facebook</h2>
-                <ul>
-                    <li><a href="spotify:app:api-tutorial:facebook:authenticate">Authenticate a user with Facebook</a></li>
-                </ul>
-
-            </div>
         </div>
-        <script src="/js/rainbow-custom.min.js"></script>
-        <script src="/js/tutorial.js"></script>
+        <script type="text/javascript">
+            function displayTemplate(){
+                console.log("in code");
+                var source   = $("#entry-template").html();
+                console.log("template source: " +  source);
+                debugger;
+                template = Handlebars.compile(source);
+                console.log("compiled template: " + template);
+                //var html = template({items: items});
+                //console.log("html:" + html);
+                //document.getElementById("list").innerHTML = html;
+            };
+
+            $(document).ready(displayTemplate);
+        </script>
     </body>
 </html>

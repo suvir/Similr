@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">	
+		<title>Similr - Connect with friends with a similar test in music</title>
+		<style type="text/css">
+			body { font-family: sans-serif; font-size: 0.9em;}
+		</style>
+		<script type="text/javascript" src="jquery-min.js"></script>
+		<script type="text/javascript" src="handlebars-v1.3.0.js"></script>
+		<script type="text/javascript">
+			var items = [
+				{name : "Pramod Biligiri", "followers" : 17, "following" : 20, 
+				"genres" : ["jazz", "pop", "rock"]
+				},
+				{name : "Asad", "followers" : 17, "following" : 21,
+				"genres" :["pop", "rock"]
+				}
+			];
+		</script>
+		
+	</head>
+	<body>		
+		<script id="entry-template" type="text/x-handlebars-template">
+			{{#each items}}
+				<div style="width: 80%; margin-left: auto; margin-right: auto;">
+					<div>	
+						<img style="float:left;" src="pramod-pic.jpg"/>
+
+						<div style="float:left; margin-left: 1em; width:80%">
+							<div style="float: left; width: 65%;">
+								<div><span style="font-weight:bold; font-size: 1.1em;">{{name}}</span></div>
+								<div style="margin-left: 20%; margin-top: 1.5em;">
+									<span style="color: green; font-style: italic; font-weight: italic; font-size: 1.1em;">Following</span>
+									<span style="margin-left: 0.4em; font-weight: bold; font-size: 1.1em;">Send Music</span>
+								</div>
+							</div>
+							
+								<div style="float: left; width: 30%;">
+									<div>Followers: N/A</div>
+									<div>Following: N/A</div>
+								</div>
+						</div>											
+					</div>
+					<div style="clear:both;"></div>
+					<div style="margin-left:35%">
+						Because you both liked jazz, rock, pop
+					</div>
+				</div>
+			{{/each}}
+		</script>
+
+		<center><h1>Similr</h1></center>
+		<center><h2>The music connect</h2></center>
+		<div id="list">
+
+		</div>
+		<script type="text/javascript">
+			function displayTemplate(){
+				console.log("in code");
+				var source   = $("#entry-template").html();
+				console.log("template source: " +  source);
+				debugger;
+				var template = Handlebars.compile(source);
+				console.log("compiled template: " + template);
+				var html = template({items: items});
+				console.log("html:" + html);
+				document.getElementById("list").innerHTML = html;
+			};
+
+			$(document).ready(displayTemplate);
+		</script>
+	</body>
+</html>

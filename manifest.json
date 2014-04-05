@@ -32,8 +32,7 @@
       }
     }
   ],
-  "Dependencies": {
-    "api": "1.38.0",
+  "Dependencies": {    
     "views": "1.18.1"
   },
   "SupportedLanguages": [

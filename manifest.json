@@ -24,12 +24,6 @@
       "title": {
         "en": "Home"
       }
-    },
-    {
-      "arguments": "tabs",
-      "title": {
-        "en": "How to use tabs"
-      }
     }
   ],
   "Dependencies": {    
